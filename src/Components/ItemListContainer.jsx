@@ -23,36 +23,35 @@ function ItemListContainer (){
 function onAdd (cant){
     console.log(cant)
 }
-    return (
-        <>
-        <div>
-            {loading ? <h2>Cargando...</h2>:
-            
-            productos.map(productos => <div key={productos.id}>
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-                <Card.Title>{productos.name}</Card.Title>
-                <Card.Text>
-                {productos.description}
-                <h3>
-                    {productos.price}
-                </h3>
-                </Card.Text>
+return (
+    <>
+    <div>
+        {loading ? <h2>Cargando...</h2>:
 
-                <ItemCount initial={1} stock={4} onAdd={onAdd}/>
-            </Card.Body>
-            </Card>
-
-        </div>
+        productos.map(productos => <div key={productos.id}>
+        <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={productos.foto}  />
         
-            )}
+        <Card.Body>
+            <Card.Title>{productos.name}</Card.Title>
+            <Card.Text>
+            <h3>
+                {productos.price}
+            </h3>
+            </Card.Text>
+            <button className="btn btn-outline-primary btn-block">Detalle del producto</button>
+        </Card.Body>
+        </Card>
 
-        </div>
-        
-        </>
+    </div>
 
-    );
+        )}
+
+    </div>
+
+    </>
+
+);
 
 
 }
