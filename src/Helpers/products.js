@@ -16,15 +16,7 @@ const productos=[{id:'1', category:'baterias', name:'Bateria Pearl', description
                 {id:'6', category:'platilloszildjian', name:'Crash Zildjian K', description:'Sweet Crash K Series K0704 18 pulgadas', price:'USD 800', stock:'3', foto:sweetcrash},
             ];
 
- export const getFetch = new Promise ((res, rej)=>{
-    let condition = true
-        if (condition){
-                setTimeout (()=>{
-                    res(productos)
-                }, 3000)
-            }else{
-                rej('404 not found')
-                }
-            
-        })
-
+export default productos;
+ 
+ 
+ 
