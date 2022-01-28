@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import ItemList from './ItemList';
+import ItemList from '../Components/ItemList'
 import getProducts from '../Helpers/getProducts';
 
 const ItemListContainer = ({ greeting }) =>{

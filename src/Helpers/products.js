@@ -19,4 +19,3 @@ const productos=[{id:'1', category:'baterias', name:'Bateria Pearl', description
 export default productos;
  
  
- 

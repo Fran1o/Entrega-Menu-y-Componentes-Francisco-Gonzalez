@@ -15,7 +15,7 @@ const Item = ({ id, category, name, description, stock, price, foto }) => {
                 {price}
             </h3>
             </Card.Text>
-            <button className="btn btn-outline-primary btn-block">Detalle del producto</button>
+            <button className="btn btn-outline-primary btn-block">Detalle del Producto</button>
         </Card.Body>
         </Card>
       
