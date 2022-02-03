@@ -18,6 +18,7 @@ const Novedades = ({ greeting }) => {
 
   return (
     <>
+    <h1>NOVEDADES</h1>
     <div className={styles.gridProducts}>
     <ItemListNovedades listNovedades={listNovedades} />
     </div>

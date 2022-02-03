@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import getProducts from '../Helpers/getProducts'
 import ItemList from '../ItemList/ItemList';
 import productos from '../Helpers/products';
+import styles from '../CSS/gridProducts.module.css';
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -26,7 +27,11 @@ const ItemListContainer = ({ greeting }) => {
 
   return (
       <>
-      <ItemList listProducts={listProducts} />
+      
+      <div className={styles.gridProducts}>
+       <ItemList listProducts={listProducts} />
+      </div>
+      
       </>
   )
 

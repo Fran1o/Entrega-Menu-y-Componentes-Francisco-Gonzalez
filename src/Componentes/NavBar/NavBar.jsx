@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cartwidget from "../Cartwidget/Cartwidget";
 import { Link } from "react-router-dom";
+import styles from '../CSS/navBar.module.css';
 
 
 const NavBar = () => {
@@ -13,18 +14,18 @@ const NavBar = () => {
 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Link to='/'>
+          <Link className={styles.navBar} to='/'>
             DrumOffice
           </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
 
-      <Link to='/categoria/baterias'>Baterias</Link>
-      <Link to='/categoria/redoblantes'>Redoblantes</Link>
-      <Link to='/categoria/banquetas'>Banquetas</Link>
-      <Link to='/categoria/baquetas'>Baquetas</Link>
-      <Link to='/categoria/platillos'>Platillos</Link>
+      <Link className={styles.navBar} to='/categoria/baterias'>Baterias</Link>
+      <Link className={styles.navBar} to='/categoria/redoblantes'>Redoblantes</Link>
+      <Link className={styles.navBar} to='/categoria/banquetas'>Banquetas</Link>
+      <Link className={styles.navBar} to='/categoria/baquetas'>Baquetas</Link>
+      <Link className={styles.navBar} to='/categoria/platillos'>Platillos</Link>
       </Nav>
     <Link to='carrito'>
       <Cartwidget />

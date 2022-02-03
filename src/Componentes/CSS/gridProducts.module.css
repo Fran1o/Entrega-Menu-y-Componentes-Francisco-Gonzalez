@@ -1,5 +1,7 @@
 .gridProducts{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
+    grid-template-columns: repeat(auto-fill, 273px);
     gap: 50px;
+    margin-left: 15px;
+    
 }
