@@ -1,5 +1,5 @@
 import React from 'react';
-import productos from '../Helpers/products';
+import productos from '../../Helpers/products';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/esm/Button';
 import { Link } from 'react-router-dom';

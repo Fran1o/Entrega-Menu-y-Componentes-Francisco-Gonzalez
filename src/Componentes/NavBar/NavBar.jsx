@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cartwidget from "../Cartwidget/Cartwidget";
 import { Link } from "react-router-dom";
-import styles from '../CSS/navBar.module.css';
+import styles from '../../CSS/navBar.module.css';
 
 
 const NavBar = () => {
@@ -21,6 +21,7 @@ const NavBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
 
+      <Link className={styles.navBar} to='categoria/novedades'>Novedades</Link>
       <Link className={styles.navBar} to='/categoria/baterias'>Baterias</Link>
       <Link className={styles.navBar} to='/categoria/redoblantes'>Redoblantes</Link>
       <Link className={styles.navBar} to='/categoria/banquetas'>Banquetas</Link>

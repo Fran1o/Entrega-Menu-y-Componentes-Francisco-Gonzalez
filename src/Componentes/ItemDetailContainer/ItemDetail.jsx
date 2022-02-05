@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 
 
+
 const ItemDetail = ({ products }) => {
+  return(
+    <>
 
-  return (
-
-    <Card style={{ width: '18rem' }}>
+        <Card>
         <Card.Img variant="top" src={products.foto} />
         <Card.Body>
       <Card.Title>{products.name}</Card.Title>
@@ -22,10 +23,16 @@ const ItemDetail = ({ products }) => {
         </Card.Text>
         
         <ItemCount initial={1} stock={products.stock}/>
-  
+
       </Card.Body>
       </Card>
-  );
+    
+    
+    
+    </>
+
+
+  )
 
 }
 
