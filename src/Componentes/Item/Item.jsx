@@ -3,13 +3,14 @@ import productos from '../../Helpers/products';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/esm/Button';
 import { Link } from 'react-router-dom';
+import styles from '../../CSS/gridProducts.module.css'
 
 
 const Item = ({ id, category, name, description, price, stock, foto}) => {
   return (
       <>
       
-      <Card>
+      <Card className={styles.cardProducts}>
         <Card.Img variant="top" src={foto} />
         <Card.Body>
       <Card.Title>{name}</Card.Title>

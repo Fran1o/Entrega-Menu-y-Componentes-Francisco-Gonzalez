@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-function ItemCount ({initial, stock, onAdd}) 
-{
+
+
+function ItemCount ({initial, stock, onAdd}) {
+
     const [contador, setContador] = useState(initial);
     
     const handlerAumentar =()=> {
@@ -17,20 +18,15 @@ function ItemCount ({initial, stock, onAdd})
         }
     }
 
-    const agregar =() => {
-        onAdd(contador)
-    }
+
 
     return (
         <div className="container w-50">
-            {contador}
+            <h3>{contador}</h3>
             <br></br>
             <button className="btn btn-outline-primary" onClick={handlerAumentar}>+</button>
             <button className="btn btn-outline-primary" onClick={handlerRestar}>-</button>
-            <Link to='/carrito'>
-            <button className="btn btn-outline-primary" onClick={agregar}>Agregar al carrito</button>
-            </Link>
-            
+            <button className="btn btn-outline-primary" onClick={onAdd}>Agregar al Carrito</button>
         </div>
     )
 
