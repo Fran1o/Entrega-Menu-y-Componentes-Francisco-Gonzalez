@@ -9,15 +9,16 @@ function ItemCount ({initial, stock, onAdd}) {
     const handlerAumentar =()=> {
         if(contador < stock){
             setContador(contador + 1)
+            console.log(contador)
         }
     }
 
     const handlerRestar =() => {
         if(contador > initial){
             setContador(contador -1)
+            console.log(contador)
         }
     }
-
 
 
     return (

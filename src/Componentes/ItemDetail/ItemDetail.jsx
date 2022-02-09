@@ -5,15 +5,21 @@ import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import styles from '../../CSS/imgCardDetail.module.css'
 import Button from 'react-bootstrap/esm/Button';
+import { useCartContext } from '../Context/CartContext';
 
 const ItemDetail = ({ products}) => {
 
     const [button, setButton] = useState ('addToCart')
     
-    const onAdd = () => {
-        setButton('goToCart')
+    const {cartList, agregarAlCarrito} = useCartContext()
+
+
+    function onAdd(cant){
+      agregarAlCarrito({...products, cantidad: cant})
+      setButton('goToCart')
     }
-  
+    console.log(cartList)
+      
   return(
     <>
 
@@ -21,11 +27,11 @@ const ItemDetail = ({ products}) => {
         <Card.Img variant="top" src={products.foto} />
         {<br></br>}
         <Card.Body>
-      <Card.Title>{products.name}</Card.Title>
+      <Card.Title><h4>{products.name}</h4></Card.Title>
         <Card.Text>
-          <h4>{products.price}</h4>
-          <h5>{products.description}</h5>
-          <h5>{products.descriptiondos}</h5>
+          <h5>{products.price}</h5>
+          <h6>{products.description}</h6>
+          <h6>{products.descriptiondos}</h6>
           <h5>Stock: {products.stock}</h5>
 
         </Card.Text>
@@ -48,7 +54,6 @@ const ItemDetail = ({ products}) => {
         
       </Card.Body>
       </Card>
-    
     </>
   )
 }
