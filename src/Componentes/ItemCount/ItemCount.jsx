@@ -5,18 +5,17 @@ import { useState } from "react";
 function ItemCount ({initial, stock, onAdd}) {
 
     const [contador, setContador] = useState(initial);
+    console.log(contador)
     
     const handlerAumentar =()=> {
         if(contador < stock){
             setContador(contador + 1)
-            console.log(contador)
         }
     }
 
     const handlerRestar =() => {
         if(contador > initial){
             setContador(contador -1)
-            console.log(contador)
         }
     }
 
@@ -27,7 +26,7 @@ function ItemCount ({initial, stock, onAdd}) {
             <br></br>
             <button className="btn btn-outline-primary" onClick={handlerAumentar}>+</button>
             <button className="btn btn-outline-primary" onClick={handlerRestar}>-</button>
-            <button className="btn btn-outline-primary" onClick={onAdd}>Agregar al Carrito</button>
+            <button className="btn btn-outline-primary" onClick={() => onAdd(contador)}>Agregar al Carrito</button>
         </div>
     )
 

@@ -14,10 +14,15 @@ function CartContextProvider ( {children} ) {
     function agregarAlCarrito(item){
         setCartList([ ...cartList, item])
     }
+    console.log(cartList, 'CARTLISTTTTTT')
+
+    function vaciarCarrito(){
+        setCartList([])
+    }
+    
 
 
-
-    return <cartContext.Provider value={{cartList, agregarAlCarrito}}>
+    return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito}}>
                 {children}
             </cartContext.Provider>
 

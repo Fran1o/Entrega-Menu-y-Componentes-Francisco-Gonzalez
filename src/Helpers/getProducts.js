@@ -1,4 +1,4 @@
-import React from 'react';
+
 import productos from './products';
 
 const getProducts = () => {

@@ -7,22 +7,20 @@ import styles from '../../CSS/imgCardDetail.module.css'
 import Button from 'react-bootstrap/esm/Button';
 import { useCartContext } from '../Context/CartContext';
 
-const ItemDetail = ({ products}) => {
+const ItemDetail = ({ products }) => {
 
     const [button, setButton] = useState ('addToCart')
-    
     const {cartList, agregarAlCarrito} = useCartContext()
 
-
-    function onAdd(cant){
-      agregarAlCarrito({...products, cantidad: cant})
+    function onAdd(contador){
+      agregarAlCarrito({item: products, cantidad: contador})
       setButton('goToCart')
+      
     }
     console.log(cartList)
       
   return(
     <>
-
         <Card className={styles.CardDetail}>
         <Card.Img variant="top" src={products.foto} />
         {<br></br>}
@@ -41,13 +39,11 @@ const ItemDetail = ({ products}) => {
           <div>
             <br></br>
             <Link to="/carrito">
-            <Button variant="primary" onClick={() => console.log('ir al cart')}>Terminar Compra</Button>
+            <Button variant="primary" onClick={() => console.log('ir al cart')}>Ir al carrito</Button>
             </Link>
             <br></br>
             <Link to="/">
             <Button variant="success" onClick={() => console.log('vuelve al home')}>Seguir agregando productos al carrito</Button>
-            <br></br>
-            <Button variant="dark" onClick={() => console.log('cancela la compra, vuelve al home')}>Cancelar</Button>
             </Link>
           </div>
         }
