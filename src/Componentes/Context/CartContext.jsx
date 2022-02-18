@@ -11,16 +11,34 @@ function CartContextProvider ( {children} ) {
     
     const [cartList, setCartList] = useState([]);
 
+
     function agregarAlCarrito(item){
-        setCartList([ ...cartList, item])
+
+        if (evitarDuplicados(item)) {
+
+            return console.log('existe, cambio la cantidad')
+                        
+
+        }
+        else{
+            return setCartList([ ...cartList, item ])
+        }
+
     }
-    console.log(cartList, 'CARTLISTTTTTT')
+    console.log(cartList)
+
+    const evitarDuplicados = (parametro) => {
+
+        const findcartList = cartList.find(el => el.item.id === parametro.item.id)
+        return findcartList;
+    }
+
+    
 
     function vaciarCarrito(){
         setCartList([])
     }
     
-
 
     return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito}}>
                 {children}
