@@ -12,16 +12,28 @@ function CartContextProvider ( {children} ) {
     const [cartList, setCartList] = useState([]);
 
 
-    function agregarAlCarrito(item){
+    function agregarAlCarrito(products, contador){ //me trae la primer cantidad del contador
 
-        if (evitarDuplicados(item)) {
+        if (evitarDuplicados(products)) {
+            console.log('existe, cambio la cantidad')
+            console.log(contador, 'que me trae el contador')
 
-            return console.log('existe, cambio la cantidad')
-                        
+            const cambiarCantidad = [...cartList]
 
+            cambiarCantidad.forEach(x => {
+
+                if (x.item = products){
+                    x.cantidad += contador
+                    
+                }
+
+                return setCartList(cambiarCantidad)
+            })
+
+            
         }
         else{
-            return setCartList([ ...cartList, item ])
+            return setCartList([ ...cartList, {item: products, cantidad: contador}])
         }
 
     }
@@ -29,7 +41,7 @@ function CartContextProvider ( {children} ) {
 
     const evitarDuplicados = (parametro) => {
 
-        const findcartList = cartList.find(el => el.item.id === parametro.item.id)
+        const findcartList = cartList.find(el => el.item.products.id === parametro.products.id)
         return findcartList;
     }
 

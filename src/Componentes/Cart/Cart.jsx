@@ -16,15 +16,15 @@ const Cart = () => {
     
     {cartList.map(prod => <Modal.Dialog key={prod}>
     <Modal.Header>
-      <Modal.Title>{prod.item.name}</Modal.Title>
+      <Modal.Title>{prod.item.products.name}</Modal.Title>
     </Modal.Header>
   
     <Modal.Body>
       {}
-      <p>{}</p>
-      <h5>Precio: {prod.item.price}</h5>
+      <p>{prod.item.products.description}</p>
+      <h5>Precio: {prod.item.products.price}</h5>
       <h6>Cantidad: {prod.cantidad}</h6>
-      <h6>Stock: {prod.item.stock}</h6>
+      <h6>Stock: {prod.item.products.stock}</h6>
     </Modal.Body>
   
     <Modal.Footer>

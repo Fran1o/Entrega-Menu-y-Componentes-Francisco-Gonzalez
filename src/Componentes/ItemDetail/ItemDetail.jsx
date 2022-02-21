@@ -13,7 +13,8 @@ const ItemDetail = ({ products }) => {
     const {cartList, agregarAlCarrito} = useCartContext()
 
     function onAdd(contador){
-      agregarAlCarrito({item: products, cantidad: contador})
+      //console.log(contador, 'primer contador ')
+      agregarAlCarrito({products}, contador)
       setButton('goToCart')
       
     }
