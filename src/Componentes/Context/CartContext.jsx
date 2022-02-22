@@ -16,7 +16,7 @@ function CartContextProvider ( {children} ) {
 
         if (evitarDuplicados(products)) {
             console.log('existe, cambio la cantidad')
-            console.log(contador, 'que me trae el contador')
+            //console.log(contador, 'que me trae el contador')
 
             const cambiarCantidad = [...cartList]
 
@@ -45,14 +45,23 @@ function CartContextProvider ( {children} ) {
         return findcartList;
     }
 
-    
+    const eliminarUno = (prod) => {
+        
+        const eliminarItem = [... cartList]
+        const itemEliminado = eliminarItem.filter(x => x !== prod)
 
+        console.log('se ejecuta')
+
+        return setCartList(itemEliminado)
+    }
+    
+    //el.item.products.id !== prod.id
     function vaciarCarrito(){
         setCartList([])
     }
     
 
-    return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito}}>
+    return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito, eliminarUno}}>
                 {children}
             </cartContext.Provider>
 
