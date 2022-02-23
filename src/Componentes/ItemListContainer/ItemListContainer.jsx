@@ -3,15 +3,14 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import productos from '../../Helpers/products';
-import getProducts from '../../Helpers/getProducts'
 import ItemList from '../ItemList/ItemList';
 import styles from '../../CSS/gridProducts.module.css';
-//import getFirestoreApp from '../../Firebase/config';
-//import {collection, getDocs} from 'firebase/firestore'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 
 
 
-const ItemListContainer = ({ greeting }) => {
+
+const ItemListContainer = () => {
 
     const [listProducts, setListProducts] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -19,35 +18,37 @@ const ItemListContainer = ({ greeting }) => {
 
 
         useEffect(() => {
+        
+            if(idCategoria){
 
-            //const db = getFirestoreApp()
-            
-            //console.log('error en la linea de abajo')
+            const db = getFirestore();
+            const queryFiltro = query(collection(db, 'productos'), where ('category', '==', idCategoria))
 
-            //const queryCollection = collection(db,'productos');
-
-            //console.log('aca esta el error')
-
-            //getDocs(queryCollection)
-            //.then(resp => setListProducts(resp.docs.map(prod => ({id: prod.id, ...prod.data()}) ) ))
-            //.catch((err) => console.log(err))
-            
-
-
-            getProducts()
-            .then((response) =>
+            getDocs(queryFiltro)
+            .then((resp) => 
                 setListProducts(
-                    idCategoria === "novedades"
-                        ? response.filter((el) => el.novedad)
-                        : idCategoria
-                        ? response.filter(
-                            (listProducts) => listProducts.category === idCategoria) : response
+                    resp.docs.map((prod) => ({id: prod.id, ...prod.data () } ))
+                )
+            )
+            .catch((err) => console.log(err))
+            .finally(() => setLoading (false))
 
-                        )
-                    )
-                .catch((err) => console.log(err))
-                .finally(() => setLoading(false));
-        }, [idCategoria])
+
+            }else{
+            
+            const db = getFirestore();
+            const queryColecction = collection(db, 'productos')
+
+            getDocs(queryColecction)
+            .then((resp) => 
+                setListProducts(
+                    resp.docs.map((prod) => ({id: prod.id, ...prod.data () } ))
+                )
+            )
+            .catch((err) => console.log(err))
+            .finally(() => setLoading (false))
+            }
+        })
 
         console.log(productos)
 
@@ -63,7 +64,21 @@ const ItemListContainer = ({ greeting }) => {
       </>
   )
 
-
-};
+}
 
 export default ItemListContainer;
+
+/*
+getProducts()
+            .then((response) =>
+                setListProducts(
+                    idCategoria === "novedades"
+                        ? response.filter((el) => el.novedad)
+                        : idCategoria
+                        ? response.filter(
+                            (listProducts) => listProducts.category === idCategoria) : response
+
+                        )
+                    )
+                .catch((err) => console.log(err))
+                .finally(() => setLoading(false));*/

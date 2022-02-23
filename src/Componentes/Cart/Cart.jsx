@@ -7,7 +7,7 @@ import { useCartContext } from '../Context/CartContext';
 
 const Cart = () => {
 
-  const {cartList, vaciarCarrito, eliminarUno} = useCartContext()
+  const {cartList, vaciarCarrito , eliminarUno , sumaTotal} = useCartContext()
 
   console.log(cartList, 'que me trae el cartlist?')
 
@@ -16,31 +16,33 @@ const Cart = () => {
     
     {cartList.map(prod => <Modal.Dialog key={prod}>
     <Modal.Header>
-      <Modal.Title>{prod.item.products.name}</Modal.Title>
+      <Modal.Title>{prod.item.name}</Modal.Title>
     </Modal.Header>
   
     <Modal.Body>
       {}
-      <p>{prod.item.products.description}</p>
-      <h5>Precio: {prod.item.products.price}</h5>
+      <p>{prod.item.description}</p>
+      <h5>Precio: USD {prod.item.price}</h5>
       <h6>Cantidad: {prod.cantidad}</h6>
-      <h6>Stock: {prod.item.products.stock}</h6>
+      <h6>Stock: {prod.item.stock}</h6>
     </Modal.Body>
   
     <Modal.Footer>
-      <Button variant="secondary" onClick={() => eliminarUno(prod)}>Eliminar del carrito</Button>
-      <Button variant="primary">Finalizar Compra</Button>
+      <Button variant="dark" onClick={() => eliminarUno(prod)}>Eliminar del carrito</Button>
     </Modal.Footer>
   </Modal.Dialog>)}
 
+  
   <div>
-    
-  <footer>
-    <Button variant="dark" onClick={vaciarCarrito}>Vaciar Carrito</Button>
-  </footer>
+    {`El precio de su compra es de: USD ${sumaTotal()}`}
   </div>
-    
- 
+
+  <footer>
+
+    <Button variant="dark" onClick={vaciarCarrito}>Vaciar Carrito</Button>
+    <Button variant="primary">Finalizar Compra</Button>
+
+  </footer>
   </>
   
   )

@@ -10,15 +10,15 @@ import { useCartContext } from '../Context/CartContext';
 const ItemDetail = ({ products }) => {
 
     const [button, setButton] = useState ('addToCart')
-    const {cartList, agregarAlCarrito} = useCartContext()
+    const {cartList, agregarAlCarrito} = useCartContext([])
 
     function onAdd(contador){
       //console.log(contador, 'primer contador ')
-      agregarAlCarrito({products}, contador)
+      agregarAlCarrito({item: products, cantidad: contador})
       setButton('goToCart')
       
     }
-    console.log(cartList)
+    console.log(cartList,'que me trae cartlist a itemdetail')
       
   return(
     <>
@@ -28,7 +28,7 @@ const ItemDetail = ({ products }) => {
         <Card.Body>
       <Card.Title><h4>{products.name}</h4></Card.Title>
         <Card.Text>
-          <h5>{products.price}</h5>
+          <h5> USD {products.price}</h5>
           <h6>{products.description}</h6>
           <h6>{products.descriptiondos}</h6>
           <h5>Stock: {products.stock}</h5>

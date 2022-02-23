@@ -12,37 +12,30 @@ function CartContextProvider ( {children} ) {
     const [cartList, setCartList] = useState([]);
 
 
-    function agregarAlCarrito(products, contador){ //me trae la primer cantidad del contador
+    function agregarAlCarrito(item){ //me trae la primer cantidad del contador
+        const index = cartList.findIndex(prod => prod.item.id === item.id )
 
-        if (evitarDuplicados(products)) {
+        console.log(item,'que me trae item')
+        console.log(cartList, 'que me trae cartlist al context')
+
+        if (index === -1) {
+
+            setCartList( [...cartList, item] )
+  
+        }else{
             console.log('existe, cambio la cantidad')
-            //console.log(contador, 'que me trae el contador')
 
-            const cambiarCantidad = [...cartList]
+            //const cant = cartList[index].cantidad
+            //cartList[index].cantidad = item.item.cantidad  + cant
 
-            cambiarCantidad.forEach(x => {
-
-                if (x.item = products){
-                    x.cantidad += contador
-                    
-                }
-
-                return setCartList(cambiarCantidad)
-            })
-
-            
+            //setCartList(cartList)
         }
-        else{
-            return setCartList([ ...cartList, {item: products, cantidad: contador}])
-        }
-
     }
     console.log(cartList)
 
-    const evitarDuplicados = (parametro) => {
-
-        const findcartList = cartList.find(el => el.item.products.id === parametro.products.id)
-        return findcartList;
+    const sumaTotal = () => {
+        return cartList.reduce((acum, prod) => acum = acum + (prod.item.price * prod.cantidad), 0)
+        
     }
 
     const eliminarUno = (prod) => {
@@ -55,17 +48,15 @@ function CartContextProvider ( {children} ) {
         return setCartList(itemEliminado)
     }
     
-    //el.item.products.id !== prod.id
     function vaciarCarrito(){
         setCartList([])
     }
     
 
-    return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito, eliminarUno}}>
+    return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito, eliminarUno, sumaTotal}}>
                 {children}
             </cartContext.Provider>
 
 }
 
 export default CartContextProvider;
-
