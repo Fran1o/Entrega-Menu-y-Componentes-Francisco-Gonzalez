@@ -13,7 +13,7 @@ function CartContextProvider ( {children} ) {
 
 
     function agregarAlCarrito(item){ //me trae la primer cantidad del contador
-        const index = cartList.findIndex(prod => prod.item.id === item.id )
+        const index = cartList.findIndex(prod => prod.item.id === item.item.id )
 
         console.log(item,'que me trae item')
         console.log(cartList, 'que me trae cartlist al context')
@@ -23,12 +23,15 @@ function CartContextProvider ( {children} ) {
             setCartList( [...cartList, item] )
   
         }else{
+
             console.log('existe, cambio la cantidad')
 
-            //const cant = cartList[index].cantidad
-            //cartList[index].cantidad = item.item.cantidad  + cant
+            const cant = cartList[index].cantidad
+            cartList[index].cantidad = item.cantidad + cant
 
-            //setCartList(cartList)
+            const newCartList = [ ...cartList ]
+            setCartList(newCartList)
+
         }
     }
     console.log(cartList)
@@ -36,6 +39,10 @@ function CartContextProvider ( {children} ) {
     const sumaTotal = () => {
         return cartList.reduce((acum, prod) => acum = acum + (prod.item.price * prod.cantidad), 0)
         
+    }
+
+    const cantidadCarrito = () => {
+        return cartList.reduce((acum, prod) => acum += prod.cantidad, 0)
     }
 
     const eliminarUno = (prod) => {
@@ -53,7 +60,7 @@ function CartContextProvider ( {children} ) {
     }
     
 
-    return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito, eliminarUno, sumaTotal}}>
+    return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito, eliminarUno, sumaTotal, cantidadCarrito}}>
                 {children}
             </cartContext.Provider>
 

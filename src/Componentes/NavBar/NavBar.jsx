@@ -7,9 +7,12 @@ import Cartwidget from "../Cartwidget/Cartwidget";
 import { Link } from "react-router-dom";
 import styles from '../../CSS/navBar.module.css';
 import Button from "react-bootstrap/esm/Button";
+import { useCartContext } from "../Context/CartContext";
 
 
 const NavBar = () => {
+
+  const { cantidadCarrito } = useCartContext()
 
     return (
 
@@ -30,6 +33,7 @@ const NavBar = () => {
       <Link className={styles.navBar} to='/categoria/platillos'><Button variant="outline-warning">Platillos</Button></Link>
       </Nav>
     <Link to='carrito'>
+    {cantidadCarrito()}
       <Cartwidget />
     </Link>
 

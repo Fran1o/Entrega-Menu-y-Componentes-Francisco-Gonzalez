@@ -13,7 +13,6 @@ const Cart = () => {
 
   return (
     <>
-    
     {cartList.map(prod => <Modal.Dialog key={prod}>
     <Modal.Header>
       <Modal.Title>{prod.item.name}</Modal.Title>
