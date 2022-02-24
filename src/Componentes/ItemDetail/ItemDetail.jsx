@@ -10,11 +10,11 @@ import { useCartContext } from '../Context/CartContext';
 const ItemDetail = ({ products }) => {
 
     const [button, setButton] = useState ('addToCart')
-    const {cartList, agregarAlCarrito} = useCartContext([])
+    const {cartList, AddToCart} = useCartContext()
 
     function onAdd(contador){
       //console.log(contador, 'primer contador ')
-      agregarAlCarrito({item: products, cantidad: contador})
+      AddToCart ({item: products, cantidad: contador})
       setButton('goToCart')
       
     }
@@ -39,7 +39,7 @@ const ItemDetail = ({ products }) => {
           :
           <div>
             <br></br>
-            <Link to="/carrito">
+            <Link to="/cart">
             <Button variant="primary" onClick={() => console.log('ir al cart')}>Ir al carrito</Button>
             </Link>
             <br></br>

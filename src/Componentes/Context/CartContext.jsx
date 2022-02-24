@@ -12,7 +12,7 @@ function CartContextProvider ( {children} ) {
     const [cartList, setCartList] = useState([]);
 
 
-    function agregarAlCarrito(item){ //me trae la primer cantidad del contador
+    function AddToCart(item){ //me trae la primer cantidad del contador
         const index = cartList.findIndex(prod => prod.item.id === item.item.id )
 
         console.log(item,'que me trae item')
@@ -60,7 +60,7 @@ function CartContextProvider ( {children} ) {
     }
     
 
-    return <cartContext.Provider value={{cartList, agregarAlCarrito, vaciarCarrito, eliminarUno, sumaTotal, cantidadCarrito}}>
+    return <cartContext.Provider value={{cartList, AddToCart, vaciarCarrito, eliminarUno, sumaTotal, cantidadCarrito}}>
                 {children}
             </cartContext.Provider>
 

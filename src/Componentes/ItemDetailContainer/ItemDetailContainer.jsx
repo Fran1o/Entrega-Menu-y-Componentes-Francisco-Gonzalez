@@ -12,26 +12,20 @@ import Spinner from 'react-bootstrap/Spinner';
 const ItemDetailContainer = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState (true)
-  const {idProducto} = useParams()
+  const {idProduct} = useParams()
 
   useEffect(() => {
 
     const db = getFirestore();
-    const itemReference = doc(db, 'productos', idProducto);
+    const itemReference = doc(db, 'productos', idProduct);
 
     getDoc(itemReference) 
     .then((res) => setProducts ({ id: res.id, ...res.data() }) )
     .catch((err) => console.log(err))
     .finally(() => setLoading(false))
-    
+  
+  },[idProduct])
 
-    //getProducts().then((data) => {
-      //setProducts(data.find((el) => el.id === idProducto))
-    //})
-      //.catch(err => console.log(err))
-      //.finally(() => setLoading(false));
-  },[idProducto])
-  //, [idProducto]);
   console.log(products)
 
   return (

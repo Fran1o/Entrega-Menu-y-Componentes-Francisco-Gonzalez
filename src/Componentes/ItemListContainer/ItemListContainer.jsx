@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import productos from '../../Helpers/products';
 import ItemList from '../ItemList/ItemList';
 import styles from '../../CSS/gridProducts.module.css';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
@@ -14,15 +13,15 @@ const ItemListContainer = ({ greeting }) => {
 
     const [listProducts, setListProducts] = useState([]);
     const [loading, setLoading] = useState(true)
-    const { idCategoria } = useParams()
+    const { idCategory } = useParams()
 
 
         useEffect(() => {
         
-            if(idCategoria){
+            if(idCategory){
 
             const db = getFirestore();
-            const queryFiltro = query(collection(db, 'productos'), where ('category', '==', idCategoria))
+            const queryFiltro = query(collection(db, 'productos'), where ('category', '==', idCategory))
 
             getDocs(queryFiltro)
             .then((resp) => 
@@ -50,7 +49,6 @@ const ItemListContainer = ({ greeting }) => {
             }
         })
 
-        console.log(productos)
 
   return (
       <>

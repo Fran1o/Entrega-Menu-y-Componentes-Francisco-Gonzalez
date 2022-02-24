@@ -25,14 +25,14 @@ const NavBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
 
-      <Link className={styles.navBar} to='categoria/novedades'><Button variant="outline-warning">Novedades</Button></Link>
-      <Link className={styles.navBar} to='/categoria/baterias'><Button variant="outline-warning">Baterias</Button></Link>
-      <Link className={styles.navBar} to='/categoria/redoblantes'><Button variant="outline-warning">Redoblantes</Button></Link>
-      <Link className={styles.navBar} to='/categoria/banquetas'><Button variant="outline-warning">Banquetas</Button></Link>
-      <Link className={styles.navBar} to='/categoria/baquetas'><Button variant="outline-warning">Baquetas</Button></Link>
-      <Link className={styles.navBar} to='/categoria/platillos'><Button variant="outline-warning">Platillos</Button></Link>
+      <Link className={styles.navBar} to='/category/novedades'><Button variant="outline-warning">Novedades</Button></Link>
+      <Link className={styles.navBar} to='/category/baterias'><Button variant="outline-warning">Baterias</Button></Link>
+      <Link className={styles.navBar} to='/category/redoblantes'><Button variant="outline-warning">Redoblantes</Button></Link>
+      <Link className={styles.navBar} to='/category/banquetas'><Button variant="outline-warning">Banquetas</Button></Link>
+      <Link className={styles.navBar} to='/category/baquetas'><Button variant="outline-warning">Baquetas</Button></Link>
+      <Link className={styles.navBar} to='/category/platillos'><Button variant="outline-warning">Platillos</Button></Link>
       </Nav>
-    <Link className={styles.cantidadCarrito} to='carrito'>
+    <Link className={styles.cantidadCarrito} to='/cart'>
     {cantidadCarrito() !== 0 && cantidadCarrito()}
       <Cartwidget />
     </Link>
