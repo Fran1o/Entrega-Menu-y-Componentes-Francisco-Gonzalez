@@ -32,8 +32,8 @@ const NavBar = () => {
       <Link className={styles.navBar} to='/categoria/baquetas'><Button variant="outline-warning">Baquetas</Button></Link>
       <Link className={styles.navBar} to='/categoria/platillos'><Button variant="outline-warning">Platillos</Button></Link>
       </Nav>
-    <Link to='carrito'>
-    {cantidadCarrito()}
+    <Link className={styles.cantidadCarrito} to='carrito'>
+    {cantidadCarrito() !== 0 && cantidadCarrito()}
       <Cartwidget />
     </Link>
 

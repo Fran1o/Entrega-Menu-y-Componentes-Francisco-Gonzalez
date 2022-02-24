@@ -6,11 +6,11 @@ import productos from '../../Helpers/products';
 import ItemList from '../ItemList/ItemList';
 import styles from '../../CSS/gridProducts.module.css';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 
-
-const ItemListContainer = () => {
+const ItemListContainer = ({ greeting }) => {
 
     const [listProducts, setListProducts] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -55,7 +55,9 @@ const ItemListContainer = () => {
   return (
       <>
       
-      {loading ? <h1>Cargando...</h1> : 
+      {loading ? <Spinner className={styles.loadingButton} animation="border" role="status">
+  <span></span>
+</Spinner> : 
             <div className={styles.gridProducts}>
                 <ItemList listProducts={listProducts} />
             </div> }

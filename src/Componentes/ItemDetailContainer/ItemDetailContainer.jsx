@@ -3,8 +3,9 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-//import getProducts from '../../Helpers/getProducts';
+import styles from '../../CSS/gridProducts.module.css';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 
@@ -36,7 +37,9 @@ const ItemDetailContainer = () => {
   return (
 
     <>
-    {loading ? <h1>Cargando...</h1> : <div> <ItemDetail products={products} /> </div> }
+    {loading ? <Spinner className={styles.loadingButton} animation="border" role="status">
+  <span></span>
+</Spinner> : <div> <ItemDetail products={products} /> </div> }
     </>
     
     )
