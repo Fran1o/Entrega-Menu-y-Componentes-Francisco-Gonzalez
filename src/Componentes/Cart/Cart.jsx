@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/esm/Button';
 import Alert from 'react-bootstrap/esm/Alert';
 import Modal from 'react-bootstrap/esm/Modal';
 import { Link } from 'react-router-dom';
+//import { addDoc, getFirestore, collection, getDocs, documentId, query, where, writeBatch} from 'firebase/firestore'
 import { useCartContext } from '../Context/CartContext';
 
 
@@ -11,7 +12,7 @@ const Cart = () => {
 
   const {cartList, vaciarCarrito , eliminarUno , sumaTotal} = useCartContext()
 
-  console.log(cartList, 'que me trae el cartlist?')
+  console.log(cartList, 'que me trae el cartlist a cart?')
 
   return <>
     {cartList.length !== 0 ? <div>
@@ -20,8 +21,8 @@ const Cart = () => {
       <Modal.Title>{prod.item.name}</Modal.Title>
     </Modal.Header>
   
-    <Modal.Body>
-      {}
+    <Modal.Body src={prod.item.foto}>
+      {prod.item.foto}
       <p>{prod.item.description}</p>
       <h5>Precio: USD {prod.item.price}</h5>
       <h6>Cantidad: {prod.cantidad}</h6>
@@ -39,7 +40,7 @@ const Cart = () => {
 
     <Button variant="dark" onClick={vaciarCarrito}>Vaciar Carrito</Button>
     <Link to="/form">
-            <Button variant="primary" onClick={() => console.log('me tengo que traer info de cart')}>Finalizar compra</Button>
+            <Button variant="primary">Realizar compra</Button>
        </Link>
   </div>
 

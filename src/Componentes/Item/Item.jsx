@@ -12,7 +12,7 @@ const Item = ({ id, category, name, description, price, stock, foto }) => {
       <Card className={styles.cardProducts}>
         <Card.Img variant="top" src={foto} />
         <Card.Body>
-      <Card.Title>{name}</Card.Title>
+      <Card.Title> {name} </Card.Title>
         <Card.Text>
           <h4> USD {price}</h4>
         </Card.Text>
@@ -21,6 +21,7 @@ const Item = ({ id, category, name, description, price, stock, foto }) => {
         </Link>
       </Card.Body>
       </Card>
+
       </>
   
     )
