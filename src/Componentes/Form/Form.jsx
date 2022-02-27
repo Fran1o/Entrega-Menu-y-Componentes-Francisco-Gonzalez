@@ -4,19 +4,21 @@ import Form from 'react-bootstrap/esm/Form'
 import { useCartContext } from '../Context/CartContext'
 import { Link } from 'react-router-dom'
 import {addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch} from 'firebase/firestore'
-
+import Accordion from 'react-bootstrap/Accordion'
+import styles from '../../CSS/form.module.css';
 
 const Formulario = () => {
 
   const { cartList, sumaTotal, vaciarCarrito } = useCartContext()
-  //ACA TENGO QUE GUARDAR LA INFORMACION DE MI USUARIO
+
+  //INFORMACION DE MI USUARIO
 
 
 
 
 
 
-  //DE ACA PARA ABAJO TENGO  LAS FUNCIONES  PARA EL BOTON DE FINALIZAR O CONFIRMAR COMPRA
+  //FUNCIONES  PARA EL BOTON DE FINALIZAR O CONFIRMAR COMPRA
 
   console.log(cartList,'que me trae cartlist al form?')
 
@@ -60,12 +62,12 @@ const Formulario = () => {
   const batch = writeBatch(db)
 
   await getDocs(queryUpdateStock).then(resp => resp.docs.forEach(res => batch.update(res.ref, { 
-    stock: res.data().stock = cartList.find(item => item.item.id === res.id).cantidad
+    stock: res.data().stock - cartList.find(item => item.item.id === res.id).cantidad
     })
   ))
 
   .catch(err => console.log(err))
-  .finally(() => alert('Su compra ha sido realizada con exito'),
+  .finally(() => alert('Su compra ha sido realizada con exito, revise su correo para coordinar entrega o retiro de su compra.'),
     console.log('stock actualizado'))
   
     batch.commit()
@@ -76,11 +78,31 @@ const Formulario = () => {
 
   return <>
 
-  {<div>
+<Accordion defaultActiveKey={['0']} alwaysOpen>
+  <Accordion.Item eventKey="0">
+    <Accordion.Header>Ver resumen del pedido</Accordion.Header>
+    <Accordion.Body>
+      {cartList.map(prod => <div>
+        
+        <h2> {prod.item.name} </h2>
+        <h3> USD {prod.item.price} </h3>
 
-    <Form>
+      </div> )}
+    </Accordion.Body>
+  </Accordion.Item>
+  <Accordion.Item eventKey="1">
+    <Accordion.Header>Total al pagar</Accordion.Header>
+    <Accordion.Body>
+      <h3>USD {sumaTotal()}</h3>
+    </Accordion.Body>
+  </Accordion.Item>
+</Accordion>
+
+  {<div>
+    
+    <Form className={styles.divForm}>
     <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>Nombre completo</Form.Label>
+    <Form.Label><h4>Nombre completo</h4></Form.Label>
       <Form.Control type="text" placeholder="Nombre Completo"  />
       <Form.Text className="text-muted">
         Que aparece en su tarjeta de credito
@@ -88,18 +110,18 @@ const Formulario = () => {
     </Form.Group>
   
     <Form.Group className="mb-3" controlId="formBasicPassword">
-      <Form.Label>Numero de tarjeta</Form.Label>
-      <Form.Control type="number" placeholder="Numero de tarjeta"  />
+      <Form.Label><h4>Numero de tarjeta</h4></Form.Label>
+      <Form.Control placeholder="Numero de tarjeta"  />
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
     <Form.Label>CVC</Form.Label>
-    <Form.Control type="number" placeholder="***"  />
+    <Form.Control placeholder="***"  />
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Label>Fecha de vencimiento</Form.Label>
-    <Form.Control type="number" placeholder="**/**"  />
+    <Form.Label><h4>Fecha de vencimiento</h4></Form.Label>
+    <Form.Control type="date" placeholder="**/**"  />
     </Form.Group>
 
     <Button variant="primary" onClick={e => finalizarCompra(e)}>
