@@ -9,8 +9,9 @@ const Item = ({ id, category, name, description, price, stock, foto }) => {
 
 
   return <>
+
       <Card className={styles.cardProducts}>
-        <Card.Img variant="top" src={foto} />
+        <Card.Img className={styles.imgItemListContainer} variant="top" src={foto} />
           <Card.Body>
             <Card.Title> {name} </Card.Title>
               <Card.Text>

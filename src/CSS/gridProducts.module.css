@@ -7,9 +7,14 @@
 }
 
 .cardProducts{
-    background-color: white;
+    width: auto;
+    height: 400px;
 }
 
 .loadingButton{
     margin-top: 280px;
+}
+
+.imgItemListContainer{
+    max-height: 250px;
 }

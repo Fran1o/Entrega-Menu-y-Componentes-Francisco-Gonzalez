@@ -17,28 +17,17 @@ const ItemListContainer = ({ greeting }) => {
 
 
         useEffect(() => {
+
+            const db = getFirestore();
+            const queryCollection = collection(db, 'productos')
         
-            if(idCategory){
-
-            const db = getFirestore();
-            const queryFiltro = query(collection(db, 'productos'), where ('category', '==', idCategory))
-
-            getDocs(queryFiltro)
-            .then((resp) => 
-                setListProducts(
-                    resp.docs.map((prod) => ({id: prod.id, ...prod.data () } ))
-                )
-            )
-            .catch((err) => console.log(err))
-            .finally(() => setLoading (false))
-
-
-            }else{
             
-            const db = getFirestore();
-            const queryColecction = collection(db, 'productos')
 
-            getDocs(queryColecction)
+            const queryFilter =! idCategory ? queryCollection : query(queryCollection,
+                where('category', '==', idCategory) 
+                )
+
+            getDocs(queryFilter)
             .then((resp) => 
                 setListProducts(
                     resp.docs.map((prod) => ({id: prod.id, ...prod.data () } ))
@@ -46,11 +35,8 @@ const ItemListContainer = ({ greeting }) => {
             )
             .catch((err) => console.log(err))
             .finally(() => setLoading (false))
-            }
 
         })
-
-        
 
 
 
@@ -71,18 +57,3 @@ const ItemListContainer = ({ greeting }) => {
 }
 
 export default ItemListContainer;
-
-/*
-getProducts()
-            .then((response) =>
-                setListProducts(
-                    idCategoria === "novedades"
-                        ? response.filter((el) => el.novedad)
-                        : idCategoria
-                        ? response.filter(
-                            (listProducts) => listProducts.category === idCategoria) : response
-
-                        )
-                    )
-                .catch((err) => console.log(err))
-                .finally(() => setLoading(false));*/

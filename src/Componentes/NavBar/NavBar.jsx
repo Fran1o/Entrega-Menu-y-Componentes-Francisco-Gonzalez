@@ -25,7 +25,6 @@ const NavBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
 
-      <Link className={styles.navBar} to='/category/novedades'><Button variant="outline-warning">Novedades</Button></Link>
       <Link className={styles.navBar} to='/category/baterias'><Button variant="outline-warning">Baterias</Button></Link>
       <Link className={styles.navBar} to='/category/redoblantes'><Button variant="outline-warning">Redoblantes</Button></Link>
       <Link className={styles.navBar} to='/category/banquetas'><Button variant="outline-warning">Banquetas</Button></Link>
