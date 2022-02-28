@@ -121,16 +121,20 @@ const Formulario = () => {
     <Accordion.Body>
       {cartList.map(prod => <div>
         
-        <h4> {prod.item.name} </h4>
-        <h5> USD {prod.item.price} </h5>
+        <h4> { prod.item.name } </h4>
+        <h5> USD { prod.item.price }</h5>
 
       </div> )}
     </Accordion.Body>
   </Accordion.Item>
   <Accordion.Item eventKey="1">
-    <Accordion.Header>Total al pagar</Accordion.Header>
+    <Accordion.Header> El id de su compra es: </Accordion.Header>
     <Accordion.Body>
-      <h5>USD {sumaTotal()}</h5>
+    {cartList.map(prod => <div>
+        
+        <h6> { prod.item.id } </h6>
+
+      </div> )}
     </Accordion.Body>
   </Accordion.Item>
 </Accordion>
