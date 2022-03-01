@@ -117,22 +117,22 @@ const Formulario = () => {
 
 <Accordion defaultActiveKey={['0']} alwaysOpen>
   <Accordion.Item eventKey="0">
-    <Accordion.Header >Ver resumen del pedido</Accordion.Header>
+    <Accordion.Header >Click para ver resumen del pedido</Accordion.Header>
     <Accordion.Body>
       {cartList.map(prod => <div>
         
-        <h4> { prod.item.name } </h4>
+        <h4>- { prod.item.name } </h4>
         <h5> USD { prod.item.price }</h5>
 
       </div> )}
     </Accordion.Body>
   </Accordion.Item>
   <Accordion.Item eventKey="1">
-    <Accordion.Header> El id de su compra es: </Accordion.Header>
+    <Accordion.Header>Click para ver id de su compra</Accordion.Header>
     <Accordion.Body>
     {cartList.map(prod => <div>
         
-        <h6> { prod.item.id } </h6>
+        <h6>- { prod.item.id } </h6>
 
       </div> )}
     </Accordion.Body>
@@ -142,8 +142,9 @@ const Formulario = () => {
   {<div>
     
     <Form className={styles.divForm}>
+    
     <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label><h4>Nombre completo</h4></Form.Label>
+    <Form.Label><h6>Nombre completo</h6></Form.Label>
       <Form.Control type="text" placeholder="Nombre Completo" name='name' value={dataForm.name} onChange={handleChange} />
       <Form.Text className="text-muted">
         Que aparece en su tarjeta de credito
@@ -151,8 +152,8 @@ const Formulario = () => {
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Label><h4>Email</h4></Form.Label>
-    <Form.Control type="email" placeholder="email"  name='email' value={dataForm.email} onChange={handleChange}/>
+    <Form.Label><h6>Email</h6></Form.Label>
+    <Form.Control type="email" placeholder="Email"  name='email' value={dataForm.email} onChange={handleChange}/>
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -160,22 +161,22 @@ const Formulario = () => {
     </Form.Group>
   
     <Form.Group className="mb-3" controlId="formBasicPassword">
-      <Form.Label><h4>Numero de tarjeta</h4></Form.Label>
+      <Form.Label><h6>Numero de tarjeta</h6></Form.Label>
       <Form.Control type="number" placeholder="Numero de tarjeta" name='numbertarjet' value={dataForm.numbertarjet} onChange={handleChange} />
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Label><h4>CVC</h4></Form.Label>
+    <Form.Label><h6>CVC</h6></Form.Label>
     <Form.Control type="number" placeholder="***"  name='numcvc' value={dataForm.numcvc} onChange={handleChange}/>
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Label><h4>Fecha de vencimiento</h4></Form.Label>
+    <Form.Label><h6>Fecha de vencimiento</h6></Form.Label>
     <Form.Control type="date" placeholder="**/**"  name='date' value={dataForm.date} onChange={handleChange}/>
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Label><h4>Telefono / celular</h4></Form.Label>
+    <Form.Label><h6>Telefono / celular</h6></Form.Label>
     <Form.Control type="number" name='phone' value={dataForm.phone} onChange={handleChange}/>
     </Form.Group>
 

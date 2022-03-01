@@ -8,7 +8,11 @@
 
 .cardProducts{
     width: auto;
-    height: 400px;
+    height: 375px;
+}
+
+.cardText{
+    margin-bottom: 0px;
 }
 
 .loadingButton{
@@ -16,5 +20,7 @@
 }
 
 .imgItemListContainer{
-    max-height: 250px;
+    height: 220px;
+    width: 250px;
 }
+

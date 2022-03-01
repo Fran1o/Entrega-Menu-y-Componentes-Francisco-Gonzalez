@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ItemCount from '../ItemCount/ItemCount';
+import styles from '../../CSS/imgCardDetail.module.css';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import { useCartContext } from '../Context/CartContext';
@@ -23,19 +24,18 @@ const ItemDetail = ({ products }) => {
       
   return(
     <>
-    <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={products.foto} />
-  <Card.Body>
-    <Card.Title>{products.name}</Card.Title>
-    <Card.Text>
-      {products.description}
-    </Card.Text>
-  </Card.Body>
-  <ListGroup className="list-group-flush">
-    <ListGroupItem>Precio: USD {products.price}</ListGroupItem>
-    <ListGroupItem>Stock: {products.stock}</ListGroupItem>
-  </ListGroup>
-  <Card.Body>
+    <Card className={styles.cardDetail} >
+      <Card.Img className={styles.cardDetailImg} variant="top" src={products.foto} />
+      <Card.Body>
+        <Card.Title>{products.name}</Card.Title>
+      
+          <ListGroup className="list-group-flush">
+            <ListGroupItem>{products.description}</ListGroupItem>
+            <ListGroupItem>Precio: USD {products.price}</ListGroupItem>
+            <ListGroupItem>Stock: {products.stock}</ListGroupItem>
+          </ListGroup>
+          </Card.Body>
+      <Card.Body>
         
         {
           button === 'addToCart' ? <ItemCount initial={1} stock={products.stock} onAdd={onAdd} />

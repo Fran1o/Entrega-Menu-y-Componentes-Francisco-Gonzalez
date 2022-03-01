@@ -14,12 +14,13 @@ const Item = ({ id, category, name, description, price, stock, foto }) => {
         <Card.Img className={styles.imgItemListContainer} variant="top" src={foto} />
           <Card.Body>
             <Card.Title> {name} </Card.Title>
-              <Card.Text>
+              <Card.Text className={styles.cardText}>
                 <h4> USD {price}</h4>
+              
+                  <Link to={`/detalle/${id}`}>
+                    <Button variant="primary">Detalle del producto</Button>
+                  </Link>
               </Card.Text>
-            <Link to={`/detalle/${id}`}>
-              <Button variant="primary">Detalle del producto</Button>
-            </Link>
           </Card.Body>
       </Card>
   

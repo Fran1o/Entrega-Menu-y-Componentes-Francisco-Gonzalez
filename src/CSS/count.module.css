@@ -1,0 +1,25 @@
+.inputCount{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 50px;
+}
+
+.containerCount{
+    align-items: center;
+}
+
+.buttonNoStock{
+    margin-top: 50px;
+}
+
+.buttonAdd{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.divContador{
+    height: 7px;
+    width: 80px;
+
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "react-bootstrap/esm/Button";
+import styles from '../../CSS/count.module.css';
 
 
 
@@ -22,17 +23,22 @@ function ItemCount ({initial, stock, onAdd}) {
 
     if(stock === 0){
         
-        return <Button variant="danger" size="lg" disabled> No hay stock disponible </Button>
+        return <Button className={styles.buttonNoStock} variant="danger" size="lg" disabled> No hay stock disponible </Button>
 
     }else{
 
         return (
-            <div className="container w-50">
-                <h3>{contador}</h3>
-                <br></br>
-                <button className="btn btn-outline-primary" onClick={handlerAumentar}>+</button>
-                <button className="btn btn-outline-primary" onClick={handlerRestar}>-</button>
-                <button className="btn btn-outline-primary" onClick={() => onAdd(contador)}>Agregar al Carrito</button>
+            <div className={styles.containerCount}>
+                
+                <div className={styles.inputCount}>
+                    <button className="btn btn-outline-primary" onClick={handlerRestar}>-</button>
+                    <div className={styles.divContador}>{contador}</div>
+                    <button className="btn btn-outline-primary" onClick={handlerAumentar}>+</button> 
+                </div>
+                <div className={styles.buttonAdd}>
+                <button className={"btn btn-outline-primary"} onClick={() => onAdd(contador)}>Agregar al Carrito</button>        
+                </div>
+                
             </div>
         )
 

@@ -1,9 +1,21 @@
-.CardDetail{
-    width: 300px;
-    height: 250px;
-    margin-left: 450px;
+
+
+.cardDetail{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 200px;
+    margin-right: 300px;
+    margin-top: 100px;
+    
 }
+/*cardCart = estilos para Cart*/
 .cardCart{
     height: 200px;
     width: 230px;
+}
+
+.cardDetailImg{
+    height: 220px;
+    width: 250px;
 }
