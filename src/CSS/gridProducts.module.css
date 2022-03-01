@@ -1,14 +1,15 @@
 .gridProducts{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 273px);
+    grid-template-columns: repeat(3, 273px);
     gap: 50px;
-    margin-left: 15px;
-    
+    margin-left: 200px;
+    margin-top: 50px;
 }
 
 .cardProducts{
     width: auto;
     height: 375px;
+    border: 5px, solid darkblue;
 }
 
 .cardText{
@@ -22,5 +23,9 @@
 .imgItemListContainer{
     height: 220px;
     width: 250px;
+}
+
+.titleWelcome{
+    margin-top: 20px;
 }
 

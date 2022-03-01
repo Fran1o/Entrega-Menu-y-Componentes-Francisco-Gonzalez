@@ -45,10 +45,13 @@ const ItemListContainer = ({ greeting }) => {
       
       {loading ? <Spinner className={styles.loadingButton} animation="border" role="status">
   <span></span>
-</Spinner> : 
-            <div className={styles.gridProducts}>
+</Spinner> : <div>
+                <h1 className={styles.titleWelcome}>Bienvenidos a DrumOffice</h1>
+                <div className={styles.gridProducts}>
                 <ItemList listProducts={listProducts} />
-            </div> }
+                </div>
+             </div>
+           }
       
       
       </>
