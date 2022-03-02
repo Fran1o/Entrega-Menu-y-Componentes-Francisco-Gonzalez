@@ -11,6 +11,7 @@ import styles from '../../CSS/form.module.css';
 const Formulario = () => {
 
   const { cartList, sumaTotal, vaciarCarrito } = useCartContext()
+  const [idOrder, setIdOrder] = useState('')
 
   //INFORMACION DE MI USUARIO
   
@@ -54,9 +55,11 @@ const Formulario = () => {
 
   const db = getFirestore()
   const ordersCollection = collection(db,'orders')
+  
+  
 
   await addDoc(ordersCollection, orden)
-  .then(resp => console.log(resp))
+  .then(resp => setIdOrder(resp.id))
 
   const queryCollection = collection(db, 'productos' )
   
@@ -114,30 +117,30 @@ const Formulario = () => {
 
 
   return <>
+          {idOrder && (
 
 <Accordion defaultActiveKey={['0']} alwaysOpen>
-  <Accordion.Item eventKey="0">
-    <Accordion.Header >Click para ver resumen del pedido</Accordion.Header>
-    <Accordion.Body>
-      {cartList.map(prod => <div>
-        
-        <h4>- { prod.item.name } </h4>
-        <h5> USD { prod.item.price }</h5>
+<Accordion.Item eventKey="0">
 
-      </div> )}
-    </Accordion.Body>
-  </Accordion.Item>
-  <Accordion.Item eventKey="1">
-    <Accordion.Header>Click para ver id de su compra</Accordion.Header>
-    <Accordion.Body>
+  <Accordion.Header >Click para ver resumen del pedido</Accordion.Header>
+  <Accordion.Body>
     {cartList.map(prod => <div>
-        
-        <p>- { prod.item.id } </p>
+      
+      <h4>- { prod.item.name } </h4>
+      <p>Total a pagar: {sumaTotal()}</p>
 
-      </div> )}
-    </Accordion.Body>
-  </Accordion.Item>
+    </div> )}
+  </Accordion.Body>
+</Accordion.Item>
+
+<Accordion.Item eventKey="1">
+  <Accordion.Header>Click para ver el id al finalizar su compra</Accordion.Header>
+  <Accordion.Body>
+      <p>{idOrder}</p>
+  </Accordion.Body>
+</Accordion.Item>
 </Accordion>
+          )}
 
   {<div>
     
