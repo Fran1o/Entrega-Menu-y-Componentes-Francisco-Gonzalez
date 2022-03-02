@@ -9,7 +9,8 @@
 .cardProducts{
     width: auto;
     height: 375px;
-    border: 5px, solid darkblue;
+    border: 5px, solid;
+    border-color: rgb(114, 170, 255);
 }
 
 .cardText{

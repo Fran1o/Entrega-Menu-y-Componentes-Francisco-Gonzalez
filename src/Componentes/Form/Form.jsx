@@ -132,7 +132,7 @@ const Formulario = () => {
     <Accordion.Body>
     {cartList.map(prod => <div>
         
-        <h6>- { prod.item.id } </h6>
+        <p>- { prod.item.id } </p>
 
       </div> )}
     </Accordion.Body>

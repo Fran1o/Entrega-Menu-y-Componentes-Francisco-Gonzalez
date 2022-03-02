@@ -17,7 +17,7 @@ const Cart = () => {
 
   return <>
     {cartList.length !== 0 ? <div>
-    {cartList.map(prod => <Modal.Dialog key={prod}>
+    {cartList.map(prod => <Modal.Dialog key={prod} className={styles.borderModule}>
     <Modal.Header>
       <Modal.Title>{prod.item.name}</Modal.Title>
     </Modal.Header>
