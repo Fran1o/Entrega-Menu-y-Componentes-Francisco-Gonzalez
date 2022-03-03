@@ -26,7 +26,6 @@ const ItemDetailContainer = () => {
   
   },[idProduct])
 
-  console.log(products)
 
   return (
 

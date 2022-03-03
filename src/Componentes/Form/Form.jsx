@@ -28,8 +28,6 @@ const Formulario = () => {
   const checkout = async (e) => {
     e.preventDefault()
 
-  
-
     let orden = {}
 
     orden.buyer = dataForm
@@ -99,6 +97,7 @@ const Formulario = () => {
     numcvc:'',
     date:'',
     phone:'',
+    
 
   })
 
@@ -122,16 +121,18 @@ const Formulario = () => {
 <Accordion.Item eventKey="0">
 
   <Accordion.Header>Click para ver resumen del pedido</Accordion.Header>
-  <Accordion.Body className={styles.accordionBody}>
-    {cartList.map(prod => <div>
+  <Accordion.Body>
+    {cartList.map(prod => <div key={prod.item.id}>
       
       <h4>- { prod.item.name } </h4>
       <p> USD {prod.item.price}</p>
     </div> )}
-    <h5>Total a pagar: USD {totalSumary()}</h5>
+    
+
   </Accordion.Body>
 </Accordion.Item>
 </Accordion>
+
 {idOrder && <Accordion defaultActiveKey={['0']} alwaysOpen>
 <Accordion.Item eventKey="0">
 
@@ -140,7 +141,9 @@ const Formulario = () => {
     <p>- {idOrder}</p>
   </Accordion.Body>
 </Accordion.Item>
-</Accordion>}
+</Accordion>
+
+}
           
 
   {<div>
@@ -193,11 +196,10 @@ const Formulario = () => {
     </Button>
     </Link>
     
-    <Link to="/cart">
+    
     <Button className={styles.checkoutButton} variant="primary" onClick={e => checkout(e)}>
       Confirmar Compra
     </Button>
-    </Link>
 
     </div>
     

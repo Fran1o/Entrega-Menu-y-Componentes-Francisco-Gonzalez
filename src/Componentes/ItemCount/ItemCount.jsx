@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Button from "react-bootstrap/esm/Button";
 import styles from '../../CSS/count.module.css';
 
 
@@ -21,12 +20,6 @@ function ItemCount ({initial, stock, onAdd}) {
         }
     }
 
-    if(stock === 0){
-        
-        return <Button className={styles.buttonNoStock} variant="danger" size="lg" disabled> No hay stock disponible </Button>
-
-    }else{
-
         return (
             <div className={styles.containerCount}>
                 
@@ -41,9 +34,6 @@ function ItemCount ({initial, stock, onAdd}) {
                 
             </div>
         )
-
-    }
-    
 
 }
 

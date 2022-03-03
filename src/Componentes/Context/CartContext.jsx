@@ -15,8 +15,7 @@ function CartContextProvider ( {children} ) {
     function AddToCart(item){ //me trae la primer cantidad del contador
         const index = cartList.findIndex(prod => prod.item.id === item.item.id )
 
-        console.log(item,'que me trae item')
-        console.log(cartList, 'que me trae cartlist al context')
+        console.log(item)
 
         if (index === -1) {
 
@@ -34,7 +33,6 @@ function CartContextProvider ( {children} ) {
 
         }
     }
-    console.log(cartList)
 
     const totalSumary = () => {
         return cartList.reduce((acum, prod) => acum = acum + (prod.item.price * prod.cantidad), 0)
