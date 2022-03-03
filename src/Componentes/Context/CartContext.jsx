@@ -36,31 +36,31 @@ function CartContextProvider ( {children} ) {
     }
     console.log(cartList)
 
-    const sumaTotal = () => {
+    const totalSumary = () => {
         return cartList.reduce((acum, prod) => acum = acum + (prod.item.price * prod.cantidad), 0)
         
     }
 
-    const cantidadCarrito = () => {
+    const cartQuantity = () => {
         return cartList.reduce((acum, prod) => acum += prod.cantidad, 0)
     }
 
-    const eliminarUno = (prod) => {
+    const deleteOne = (prod) => {
         
-        const eliminarItem = [... cartList]
-        const itemEliminado = eliminarItem.filter(x => x !== prod)
+        const deleteItem = [... cartList]
+        const itemDelete = deleteItem.filter(x => x !== prod)
 
         console.log('se ejecuta')
 
-        return setCartList(itemEliminado)
+        return setCartList(itemDelete)
     }
     
-    function vaciarCarrito(){
+    function emptyCart(){
         setCartList([])
     }
     
 
-    return <cartContext.Provider value={{cartList, AddToCart, vaciarCarrito, eliminarUno, sumaTotal, cantidadCarrito}}>
+    return <cartContext.Provider value={{cartList, AddToCart, emptyCart, deleteOne, totalSumary, cartQuantity}}>
                 {children}
             </cartContext.Provider>
 

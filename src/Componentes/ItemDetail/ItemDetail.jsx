@@ -59,15 +59,3 @@ const ItemDetail = ({ products }) => {
 }
 
 export default ItemDetail;
-/*<Card className={styles.CardDetail}>
-        <Card.Img variant="top" src={products.foto} />
-        {<br></br>}
-        <Card.Body>
-      <Card.Title><h4>{products.name}</h4></Card.Title>
-        <Card.Text>
-          <h5> USD {products.price}</h5>
-          <h6>{products.description}</h6>
-          <h6>{products.descriptiondos}</h6>
-          <h5>Stock: {products.stock}</h5>
-
-        </Card.Text>*/

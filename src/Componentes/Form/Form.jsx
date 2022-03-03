@@ -10,7 +10,7 @@ import styles from '../../CSS/form.module.css';
 
 const Formulario = () => {
 
-  const { cartList, sumaTotal, vaciarCarrito } = useCartContext()
+  const { cartList, totalSumary, emptyCart } = useCartContext()
   const [idOrder, setIdOrder] = useState('')
 
   //INFORMACION DE MI USUARIO
@@ -25,7 +25,7 @@ const Formulario = () => {
 
   console.log(cartList,'que me trae cartlist al form?')
 
-  const finalizarCompra = async (e) => {
+  const checkout = async (e) => {
     e.preventDefault()
 
   
@@ -33,7 +33,7 @@ const Formulario = () => {
     let orden = {}
 
     orden.buyer = dataForm
-    orden.total = sumaTotal()
+    orden.total = totalSumary()
 
 
     orden.items = cartList.map(cartItem => {
@@ -84,7 +84,7 @@ const Formulario = () => {
                   phone:'',
   
     }), alert('Su compra ha sido realizada con exito, revise su correo para retirar su compra o coordinar envio.'),
-    vaciarCarrito()
+    emptyCart()
   )
   
     batch.commit()
@@ -117,7 +117,6 @@ const Formulario = () => {
 
 
   return <>
-          {idOrder && (
 
 <Accordion defaultActiveKey={['0']} alwaysOpen>
 <Accordion.Item eventKey="0">
@@ -127,20 +126,22 @@ const Formulario = () => {
     {cartList.map(prod => <div>
       
       <h4>- { prod.item.name } </h4>
-      <p>Total a pagar: {sumaTotal()}</p>
+      <h6>Total a pagar: USD {totalSumary()}</h6>
 
     </div> )}
   </Accordion.Body>
 </Accordion.Item>
+</Accordion>
+{idOrder && <Accordion defaultActiveKey={['0']} alwaysOpen>
+<Accordion.Item eventKey="0">
 
-<Accordion.Item eventKey="1">
-  <Accordion.Header>Click para ver el id al finalizar su compra</Accordion.Header>
+  <Accordion.Header >Click para ver el id de su compra</Accordion.Header>
   <Accordion.Body>
-      <p>{idOrder}</p>
+    <p>- {idOrder}</p>
   </Accordion.Body>
 </Accordion.Item>
-</Accordion>
-          )}
+</Accordion>}
+          
 
   {<div>
     
@@ -184,13 +185,13 @@ const Formulario = () => {
     </Form.Group>
 
     <Link to="/cart">
-    <Button variant="primary" onClick={e => finalizarCompra(e)}>
+    <Button variant="primary" onClick={e => checkout(e)}>
       Confirmar Compra
     </Button>
     </Link>
     
     <Link to="/">
-    <Button variant="dark" onClick={vaciarCarrito}>
+    <Button variant="dark" onClick={emptyCart}>
       Cancelar Compra
     </Button>
     </Link>

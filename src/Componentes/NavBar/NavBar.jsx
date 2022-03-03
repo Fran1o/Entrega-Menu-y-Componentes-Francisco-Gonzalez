@@ -12,7 +12,7 @@ import { useCartContext } from "../Context/CartContext";
 
 const NavBar = () => {
 
-  const { cantidadCarrito } = useCartContext()
+  const { cartQuantity } = useCartContext()
 
     return (
 
@@ -30,8 +30,8 @@ const NavBar = () => {
       <Link className={styles.navBar} to='/category/baquetas'><Button variant="outline-warning">Baquetas</Button></Link>
       <Link className={styles.navBar} to='/category/platillos'><Button variant="outline-warning">Platillos</Button></Link>
       </Nav>
-    <Link className={styles.cantidadCarrito} to='/cart'>
-    {cantidadCarrito() !== 0 && cantidadCarrito()}
+    <Link className={styles.cartQuantity} to='/cart'>
+    {cartQuantity() !== 0 && cartQuantity()}
       <Cartwidget />
     </Link>
 

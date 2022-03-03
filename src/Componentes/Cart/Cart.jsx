@@ -11,7 +11,7 @@ import { useCartContext } from '../Context/CartContext';
 
 const Cart = () => {
 
-  const {cartList, vaciarCarrito , eliminarUno , sumaTotal} = useCartContext()
+  const {cartList, emptyCart , deleteOne , totalSumary} = useCartContext()
 
   console.log(cartList, 'que me trae el cartlist a cart?')
 
@@ -34,15 +34,15 @@ const Cart = () => {
     </Modal.Body>
   
     <Modal.Footer>
-      <Button variant="dark" onClick={() => eliminarUno(prod)}>Eliminar del carrito</Button>
+      <Button variant="danger" onClick={() => deleteOne(prod)}>Eliminar del carrito</Button>
     </Modal.Footer>
   </Modal.Dialog>)}
 
 
   <div>
-    <h3> {`El precio de su compra es de: USD ${sumaTotal()}`} </h3>
+    <h3> {`El precio de su compra es de: USD ${totalSumary()}`} </h3>
 
-    <Button variant="dark" onClick={vaciarCarrito}>Vaciar Carrito</Button>
+    <Button variant="dark" onClick={emptyCart}>Vaciar Carrito</Button>
     <Link to="/form">
             <Button variant="primary">Realizar compra</Button>
        </Link>
