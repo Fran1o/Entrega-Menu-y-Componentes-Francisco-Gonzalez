@@ -126,9 +126,9 @@ const Formulario = () => {
     {cartList.map(prod => <div>
       
       <h4>- { prod.item.name } </h4>
-      <h6>Total a pagar: USD {totalSumary()}</h6>
-
+      <p> USD {prod.item.price}</p>
     </div> )}
+    <h5>Total a pagar: USD {totalSumary()}</h5>
   </Accordion.Body>
 </Accordion.Item>
 </Accordion>
