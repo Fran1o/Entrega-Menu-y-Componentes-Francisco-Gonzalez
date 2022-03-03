@@ -2,10 +2,11 @@ import React from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Alert from 'react-bootstrap/esm/Alert';
 import Modal from 'react-bootstrap/esm/Modal';
-import styles from '../../CSS/imgCardDetail.module.css';
+import styles from '../../CSS/cart.module.css';
 import { Link } from 'react-router-dom';
 //import { addDoc, getFirestore, collection, getDocs, documentId, query, where, writeBatch} from 'firebase/firestore'
 import { useCartContext } from '../Context/CartContext';
+import imgcarritovacio from '../../Imagenes/imgcarritovacio.jpeg';
 
 
 
@@ -34,26 +35,35 @@ const Cart = () => {
     </Modal.Body>
   
     <Modal.Footer>
-      <Button variant="danger" onClick={() => deleteOne(prod)}>Eliminar del carrito</Button>
+      <Button variant="dark" className={styles.deleteOne} onClick={() => deleteOne(prod)}>Eliminar del carrito</Button>
     </Modal.Footer>
   </Modal.Dialog>)}
 
 
   <div>
-    <h3> {`El precio de su compra es de: USD ${totalSumary()}`} </h3>
-
-    <Button variant="dark" onClick={emptyCart}>Vaciar Carrito</Button>
-    <Link to="/form">
-            <Button variant="primary">Realizar compra</Button>
-       </Link>
+    <h3 className={styles.totalSumary}> {`El precio de su compra es de: USD ${totalSumary()}`} </h3>
+    <div className={styles.containerButtonsCart}>
+    <Button variant="dark" className={styles.emptyCart} onClick={emptyCart}>Vaciar Carrito</Button>
+      <Link to="/form">
+          <Button className={styles.goShopping}variant="primary">Realizar compra</Button>
+      </Link>
+    </div>
+    
   </div>
 
     </div>
+
     :
 
-    <Alert>
-    No hay productos en el carrito, <Alert.Link href="/">ir a comprar</Alert.Link>
-    </Alert>
+    <div className={styles.divCart}>
+      <img className={styles.imgCart} src={imgcarritovacio} alt='fotocarritovacio'></img>
+
+      <Alert className={styles.alert}>
+          No hay productos en el carrito <Link to='/'>
+            <br></br>
+          <Button className={styles.goToCart}>ir a comprar</Button> </Link>
+      </Alert>
+    </div>
 
     }
     

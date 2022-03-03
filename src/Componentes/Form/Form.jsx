@@ -121,8 +121,8 @@ const Formulario = () => {
 <Accordion defaultActiveKey={['0']} alwaysOpen>
 <Accordion.Item eventKey="0">
 
-  <Accordion.Header >Click para ver resumen del pedido</Accordion.Header>
-  <Accordion.Body>
+  <Accordion.Header>Click para ver resumen del pedido</Accordion.Header>
+  <Accordion.Body className={styles.accordionBody}>
     {cartList.map(prod => <div>
       
       <h4>- { prod.item.name } </h4>
@@ -136,7 +136,7 @@ const Formulario = () => {
 <Accordion.Item eventKey="0">
 
   <Accordion.Header >Click para ver el id de su compra</Accordion.Header>
-  <Accordion.Body>
+  <Accordion.Body className={styles.accordionBody}>
     <p>- {idOrder}</p>
   </Accordion.Body>
 </Accordion.Item>
@@ -146,7 +146,9 @@ const Formulario = () => {
   {<div>
     
     <Form className={styles.divForm}>
-    
+      <div>
+        <h4 className={styles.titleForm}>PAGO CON TARJETA</h4>
+      </div>
     <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label><h6>Nombre completo</h6></Form.Label>
       <Form.Control type="text" placeholder="Nombre Completo" name='name' value={dataForm.name} onChange={handleChange} />
@@ -183,18 +185,22 @@ const Formulario = () => {
     <Form.Label><h6>Telefono / celular</h6></Form.Label>
     <Form.Control type="number" name='phone' value={dataForm.phone} onChange={handleChange}/>
     </Form.Group>
+    <div className={styles.containerButtonsForm}>
 
-    <Link to="/cart">
-    <Button variant="primary" onClick={e => checkout(e)}>
-      Confirmar Compra
-    </Button>
-    </Link>
-    
     <Link to="/">
-    <Button variant="dark" onClick={emptyCart}>
+    <Button className={styles.cancelButton} variant="dark" onClick={emptyCart}>
       Cancelar Compra
     </Button>
     </Link>
+    
+    <Link to="/cart">
+    <Button className={styles.checkoutButton} variant="primary" onClick={e => checkout(e)}>
+      Confirmar Compra
+    </Button>
+    </Link>
+
+    </div>
+    
     
   </Form>
 

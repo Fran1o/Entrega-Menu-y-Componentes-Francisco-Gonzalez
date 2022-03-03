@@ -17,7 +17,7 @@ const NavBar = () => {
     return (
 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
+        <Container className={styles.alingItems}>
           <Link className={styles.navBar} to='/'>
           <Button variant="outline-light">DrumOffice</Button>
           </Link>

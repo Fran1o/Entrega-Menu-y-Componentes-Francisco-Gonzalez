@@ -33,7 +33,8 @@ const ItemDetailContainer = () => {
     <>
     {loading ? <Spinner className={styles.loadingButton} animation="border" role="status">
   <span></span>
-</Spinner> : <div> <ItemDetail products={products} /> </div> }
+</Spinner> : <ItemDetail products={products} /> }
+
     </>
     
     )

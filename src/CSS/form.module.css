@@ -3,5 +3,43 @@
     width: 550px;
     margin-left: 400px;
     margin-top: 20px;
+    border-radius: 0.4em;
+    box-shadow: 0.3em 0.3em 0.7em #00000015;
+    transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: rgb(105, 233, 250) 0.2em solid;
 }
 
+.divForm:hover{
+    border: #006fff 0.2em solid;
+}
+.titleForm{
+    margin-top: 15px;
+    font-family: 'Fredoka', sans-serif;
+    background-color: rgb(105, 233, 250);
+}
+
+
+.accordionBody{
+    background-color: rgb(218, 218, 218);
+}
+
+.cancelButton:hover{
+    background-color: black;
+    border: 5px, solid;
+    border-color: black;
+}
+
+.checkoutButton:hover{
+    transition: 0,5s;
+    background-color: rgb(21, 190, 21);
+    border: 5px, solid;
+    border-color: rgb(21, 190, 21);
+}
+
+.containerButtonsForm{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    margin-left: 35px;
+    margin-right: 35px;
+}

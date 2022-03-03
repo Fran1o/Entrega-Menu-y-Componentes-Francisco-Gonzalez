@@ -1,0 +1,79 @@
+.cardCart{
+    height: 200px;
+    width: 230px;
+    
+}
+
+.borderModule{
+    border-radius: 0.4em;
+    box-shadow: 0.3em 0.3em 0.7em #00000015;
+    transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: rgba(255, 46, 46, 0.507) 0.2em solid;
+}
+.divCart{
+    background-color: rgb(20, 0, 50);
+    height: 100vh;
+}
+
+.imgCart{
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+    opacity: 0.7;
+}
+
+.alert{
+    margin-top: 10vh;
+    background-color: rgb(20, 0, 50);
+    color: white;
+    border: 5px, solid;
+    border-color: rgb(20, 0, 50);
+}
+
+.goToCart{
+    color: white;
+    background-color: #282c34;
+    margin-top: 25px;
+}
+
+.goToCart:hover{
+    transition: 1,5s;
+    color: yellow;
+}
+
+.totalSumary{
+    margin-top: 50px;
+    font-family: 'Fredoka', sans-serif;
+    color: #282c34;
+}
+
+.containerButtonsCart{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin-top: 50px;
+
+}
+
+.goShopping{
+    margin-left: 20px;
+}
+
+.goShopping:hover{
+    transition: 0,5s;
+    background-color: rgb(21, 190, 21);
+    border: 5px, solid;
+    border-color: rgb(21, 190, 21);
+}
+
+.emptyCart:hover{
+    background-color: black;
+    border: 5px, solid;
+    border-color: black;
+}
+
+.deleteOne:hover{
+    background-color: black;
+    border: 5px, solid;
+    border-color: black;
+}
