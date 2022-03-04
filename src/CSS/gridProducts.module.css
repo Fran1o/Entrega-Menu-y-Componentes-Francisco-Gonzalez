@@ -22,7 +22,8 @@
 
 
 .cardText{
-    margin-bottom: 0px;
+    text-align: center;
+    margin-top: 5px;
 }
 
 .loadingButton{

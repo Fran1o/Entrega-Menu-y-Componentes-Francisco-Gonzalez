@@ -14,7 +14,7 @@ const Cart = () => {
 
   const {cartList, emptyCart , deleteOne , totalSumary} = useCartContext()
 
-  console.log(cartList, 'que me trae el cartlist a cart?')
+  console.log(cartList)
 
   return <>
     {cartList.length !== 0 ? <div>

@@ -44,11 +44,11 @@ const ItemDetail = ({ products }) => {
           <div className={styles.buttonsAfterCount}>
             <br></br>
             <Link to="/cart">
-            <Button variant="primary" onClick={() => console.log('ir al cart')}>Ir al carrito</Button>
+            <Button variant="primary" onClick={() => console.log('cart')}>Ir al carrito</Button>
             </Link>
             <br></br>
             <Link to="/">
-            <Button variant="success" onClick={() => console.log('vuelve al home')}>Seguir agregando productos al carrito</Button>
+            <Button variant="success" onClick={() => console.log('home')}>Seguir agregando productos al carrito</Button>
             </Link>
           </div>
         }

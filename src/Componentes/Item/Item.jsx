@@ -18,10 +18,10 @@ const Item = ({ id, category, name, description, price, stock, foto }) => {
                         <Card.Body>
                           <Card.Title> {name} </Card.Title>
                            <Card.Text className={styles.cardText}>
-                            <h4> USD {price}</h4>
+                            USD {price}
           
-                              <Button variant="danger" disabled> No hay stock disponible </Button>
                           </Card.Text>
+                            <Button variant="danger" disabled> No hay stock disponible </Button>
                         </Card.Body>
                   </Card>
               </div>         
@@ -37,12 +37,11 @@ const Item = ({ id, category, name, description, price, stock, foto }) => {
                <Card.Body>
                   <Card.Title> {name} </Card.Title>
                     <Card.Text className={styles.cardText}>
-                      <h4> USD {price}</h4>
-
-                       <Link to={`/detalle/${id}`}>
+                       USD {price}
+                    </Card.Text>
+                    <Link to={`/detalle/${id}`}>
                            <Button variant="primary">Detalle del producto</Button>
                       </Link>
-                    </Card.Text>
                 </Card.Body>
             </Card>
           </div>
