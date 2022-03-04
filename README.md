@@ -68,3 +68,24 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### NOMBRE
+
+DrumOffice
+
+### DESCRIPCION
+
+E-commerce, venta de productos relacionados a la bateria (instrumento musical)
+
+### INSTALACION
+
+
+"react-router-dom": "^6.2.1", react-router-dom nos permite ir a distintas secciones de la pagina a travez de un link
+
+"react-bootstrap": "^2.1.1", nos permite traer librerias de react-bootstrap 
+
+"react-icons": "^4.3.1", instala la libreria de iconos, en este caso utilice el icono del cart
+
+"firebase": "^9.6.6", inicia nuestra conexion entre nunestra app y nuestra base de datos en firebase/firestore
+
+

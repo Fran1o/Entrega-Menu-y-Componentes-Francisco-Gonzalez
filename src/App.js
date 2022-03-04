@@ -5,7 +5,7 @@ import ItemListContainer from './Componentes/ItemListContainer/ItemListContainer
 import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailContainer';
 import Cart from './Componentes/Cart/Cart';
 import Form from './Componentes/Form/Form';
-import CartContextProvider, {cartContext} from './Componentes/Context/CartContext';
+import CartContextProvider from './Componentes/Context/CartContext';
 
 
 
