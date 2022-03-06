@@ -17,6 +17,7 @@ const ItemListContainer = ({ greeting }) => {
 
 
         useEffect(() => {
+            setLoading(true)
 
             const db = getFirestore();
             const queryCollection = collection(db, 'productos')
