@@ -88,4 +88,6 @@ E-commerce, venta de productos relacionados a la bateria (instrumento musical)
 
 "firebase": "^9.6.6", inicia nuestra conexion entre nunestra app y nuestra base de datos en firebase/firestore
 
+### DEMO 
 
+https://confident-brown-e6b0ea.netlify.app/
