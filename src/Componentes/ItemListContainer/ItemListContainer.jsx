@@ -16,7 +16,7 @@ const ItemListContainer = ({ greeting }) => {
     const { idCategory } = useParams()
 
 
-        useEffect(() => {
+        useEffect(() => { 
             setLoading(true)
 
             const db = getFirestore();
