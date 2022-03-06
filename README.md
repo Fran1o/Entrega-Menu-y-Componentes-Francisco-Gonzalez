@@ -90,4 +90,4 @@ E-commerce, venta de productos relacionados a la bateria (instrumento musical)
 
 ### DEMO 
 
-https://confident-brown-e6b0ea.netlify.app/
+https://stupefied-haibt-a260e7.netlify.app/
