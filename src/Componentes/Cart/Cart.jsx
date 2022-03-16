@@ -14,8 +14,6 @@ const Cart = () => {
 
   const {cartList, emptyCart , deleteOne , totalSumary} = useCartContext()
 
-  console.log(cartList)
-
   return <>
     {cartList.length !== 0 ? <div>
     {cartList.map(prod => <Modal.Dialog key={prod} className={styles.borderModule}>

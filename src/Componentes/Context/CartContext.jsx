@@ -6,7 +6,6 @@ const cartContext = createContext([])
 
 export function useCartContext() {return useContext(cartContext)}
 
-
 function CartContextProvider ( {children} ) {
     
     const [cartList, setCartList] = useState([]);
@@ -15,7 +14,7 @@ function CartContextProvider ( {children} ) {
     function AddToCart(item){ //me trae la primer cantidad del contador
         const index = cartList.findIndex(prod => prod.item.id === item.item.id )
 
-        console.log(item)
+        
 
         if (index === -1) {
 
@@ -23,7 +22,7 @@ function CartContextProvider ( {children} ) {
   
         }else{
 
-            console.log('existe, cambio la cantidad')
+           
 
             const cant = cartList[index].cantidad
             cartList[index].cantidad = item.cantidad + cant
@@ -38,7 +37,7 @@ function CartContextProvider ( {children} ) {
         return cartList.reduce((acum, prod) => acum = acum + (prod.item.price * prod.cantidad), 0)
         
     }
-
+    
     const cartQuantity = () => {
         return cartList.reduce((acum, prod) => acum += prod.cantidad, 0)
     }
@@ -48,7 +47,7 @@ function CartContextProvider ( {children} ) {
         const deleteItem = [... cartList]
         const itemDelete = deleteItem.filter(x => x !== prod)
 
-        console.log('se ejecuta')
+        
 
         return setCartList(itemDelete)
     }

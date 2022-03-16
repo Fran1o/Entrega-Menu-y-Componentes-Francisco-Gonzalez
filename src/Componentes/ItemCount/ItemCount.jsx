@@ -6,7 +6,7 @@ import styles from '../../CSS/count.module.css';
 function ItemCount ({initial, stock, onAdd}) {
 
     const [contador, setContador] = useState(initial);
-    console.log(contador)
+    
     
     const handlerAumentar =()=> {
         if(contador < stock){

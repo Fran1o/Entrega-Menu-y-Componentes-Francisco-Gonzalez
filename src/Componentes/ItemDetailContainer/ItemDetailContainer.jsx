@@ -31,8 +31,10 @@ const ItemDetailContainer = () => {
 
     <>
     {loading ? <Spinner className={styles.loadingButton} animation="border" role="status">
-  <span></span>
-</Spinner> : <ItemDetail products={products} /> }
+                  <span></span>
+                </Spinner> 
+              : 
+                <ItemDetail products={products} /> }
 
     </>
     

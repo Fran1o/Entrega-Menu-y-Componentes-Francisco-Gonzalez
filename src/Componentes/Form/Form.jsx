@@ -13,17 +13,7 @@ const Formulario = () => {
   const { cartList, totalSumary, emptyCart } = useCartContext()
   const [idOrder, setIdOrder] = useState('')
 
-  //INFORMACION DE MI USUARIO
-  
-
-
-
-
-
-
-  //FUNCIONES  PARA EL BOTON DE FINALIZAR O CONFIRMAR COMPRA
-
-  console.log(cartList,'que me trae cartlist al form?')
+ 
 
   const checkout = async (e) => {
     e.preventDefault()
@@ -103,7 +93,7 @@ const Formulario = () => {
 
   
 
-  console.log(dataForm)
+  
 
   const handleChange = (event) => {
   
