@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Proyecto-React-Francisco-Gonzalez/static/css/main.aa9ad056.css",
+    "main.js": "/Proyecto-React-Francisco-Gonzalez/static/js/main.99152b94.js",
+    "static/js/787.9c53875c.chunk.js": "/Proyecto-React-Francisco-Gonzalez/static/js/787.9c53875c.chunk.js",
+    "static/media/imgcarritovacio.jpeg": "/Proyecto-React-Francisco-Gonzalez/static/media/imgcarritovacio.de9957b8f19e26f7fc8a.jpeg",
+    "index.html": "/Proyecto-React-Francisco-Gonzalez/index.html",
+    "main.aa9ad056.css.map": "/Proyecto-React-Francisco-Gonzalez/static/css/main.aa9ad056.css.map",
+    "main.99152b94.js.map": "/Proyecto-React-Francisco-Gonzalez/static/js/main.99152b94.js.map",
+    "787.9c53875c.chunk.js.map": "/Proyecto-React-Francisco-Gonzalez/static/js/787.9c53875c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa9ad056.css",
+    "static/js/main.99152b94.js"
+  ]
+}
