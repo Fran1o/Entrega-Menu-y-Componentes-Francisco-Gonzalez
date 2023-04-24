@@ -2,7 +2,7 @@
   "name": "entregas",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://fran1o.github.io/Proyecto-React-Francisco-Gonzalez",
+  "homepage": "https://fran1o.github.io/Proyecto-React-Francisco-Gonzalez/public",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
